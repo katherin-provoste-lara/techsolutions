@@ -3,21 +3,24 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Carga datos iniciales para realizar pruebas del sistema.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Usuario de prueba generado por Laravel.
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+        ]);
+
+        // Carga proyectos de ejemplo para probar el módulo de proyectos.
+        $this->call([
+            ProyectoSeeder::class,
         ]);
     }
 }
