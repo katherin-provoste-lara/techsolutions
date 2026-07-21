@@ -13,6 +13,7 @@ class Proyecto extends Model
     // Indica los campos que pueden ser registrados o modificados
     // mediante creación masiva de datos.
     protected $fillable = [
+        'id',
         'nombre',
         'fecha_inicio',
         'estado',

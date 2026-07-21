@@ -125,25 +125,13 @@ Eliminar Proyecto
 
 
 
-<form>
-
-
-<button class="eliminar" type="submit">
-
-Eliminar
-
-</button>
-
-
-<a class="cancelar" href="#">
-
-Cancelar
-
-</a>
-
-
-
+<form action="{{ route('proyectos.destroy', $proyecto) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit">Sí, eliminar</button>
 </form>
+
+<a href="{{ route('proyectos.index') }}">Cancelar</a>
 
 
 
