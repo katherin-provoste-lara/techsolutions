@@ -47,6 +47,11 @@ class ProyectoController extends Controller
         return view('proyectos.create');
     }
 
+    public function store(Request $request) #guarda un nuevo proyecto en la base de datos
+    {
+        return redirect()->route('proyectos.index');
+    }
+
     public function show(int $proyecto) #muestra un proyecto específico
     {
         return view('proyectos.show')
@@ -57,6 +62,11 @@ class ProyectoController extends Controller
     {
         return view('proyectos.edit')
             ->with('proyecto', $this->proyectos[$proyecto - 1]);
+    }
+
+    public function update(Request $request, $id) #actualiza un proyecto específico con los datos enviados desde el formulario de edición
+    {
+        return redirect()->route('proyectos.index');
     }
 
     public function destroy(int $proyecto) #elimina un proyecto específico de la base de datos
