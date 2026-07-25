@@ -67,7 +67,8 @@
 
 
 </head>
-<!--Esta vista permite modificar los datos de un proyecto existente.
+
+<!-- Esta vista permite modificar los datos de un proyecto existente.
 Muestra la información actual para poder actualizarla. -->
 
 <body>
@@ -80,7 +81,11 @@ Muestra la información actual para poder actualizarla. -->
 
 
 
-<form>
+<form action="{{ route('proyectos.update', $proyecto->id) }}" method="POST">
+
+    @csrf
+
+    @method('PUT')
 
 
 <label>

@@ -2,15 +2,12 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Crear Proyecto</title>
 
     <style>
-
         body {
             font-family: Arial, sans-serif;
             margin: 40px;
@@ -29,7 +26,8 @@
             font-weight: bold;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
@@ -40,98 +38,96 @@
             padding: 10px 20px;
             cursor: pointer;
         }
-
     </style>
-
 </head>
-<!--Esta vista contiene el formulario para ingresar un nuevo proyecto.
-El usuario completa los datos y luego se envían para guardar el proyecto..-->
+
+<!-- Esta vista contiene el formulario para ingresar un nuevo proyecto.
+Los datos ingresados son enviados al controlador para ser procesados. -->
 
 <body>
 
+    <h1>Crear Nuevo Proyecto</h1>
 
-<h1>Crear Nuevo Proyecto</h1>
+    <form action="{{ route('proyectos.store') }}" method="POST">
 
+        @csrf
 
-<form>
+        <label for="nombre">
+            Nombre del proyecto:
+        </label>
 
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ingrese nombre del proyecto"
+            required
+        >
 
-    <label>
-        Nombre del proyecto:
-    </label>
+        <label for="fecha_inicio">
+            Fecha de inicio:
+        </label>
 
-    <input
-        type="text"
-        name="nombre"
-        placeholder="Ingrese nombre del proyecto"
-    >
+        <input
+            type="date"
+            id="fecha_inicio"
+            name="fecha_inicio"
+            required
+        >
 
+        <label for="estado">
+            Estado:
+        </label>
 
+        <select
+            id="estado"
+            name="estado"
+            required
+        >
 
-    <label>
-        Fecha de inicio:
-    </label>
+            <option value="Pendiente">
+                Pendiente
+            </option>
 
-    <input
-        type="date"
-        name="fecha_inicio"
-    >
+            <option value="En progreso">
+                En progreso
+            </option>
 
+            <option value="Finalizado">
+                Finalizado
+            </option>
 
+        </select>
 
-    <label>
-        Estado:
-    </label>
+        <label for="responsable">
+            Responsable:
+        </label>
 
-    <select name="estado">
+        <input
+            type="text"
+            id="responsable"
+            name="responsable"
+            placeholder="Ingrese responsable"
+            required
+        >
 
-        <option value="Pendiente">
-            Pendiente
-        </option>
+        <label for="monto">
+            Monto:
+        </label>
 
-        <option value="En progreso">
-            En progreso
-        </option>
+        <input
+            type="number"
+            id="monto"
+            name="monto"
+            placeholder="Ingrese monto"
+            required
+        >
 
-        <option value="Finalizado">
-            Finalizado
-        </option>
+        <button type="submit">
+            Guardar Proyecto
+        </button>
 
-    </select>
-
-
-
-    <label>
-        Responsable:
-    </label>
-
-    <input
-        type="text"
-        name="responsable"
-        placeholder="Ingrese responsable"
-    >
-
-
-
-    <label>
-        Monto:
-    </label>
-
-    <input
-        type="number"
-        name="monto"
-        placeholder="Ingrese monto"
-    >
-
-
-
-    <button type="submit">
-        Guardar Proyecto
-    </button>
-
-
-</form>
-
+    </form>
 
 </body>
 
